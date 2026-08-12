@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTodo } from '../context/TodoContext';
-import { Priority, RecurrencePattern } from '../types/todo';
+import type { Priority, RecurrencePattern } from '../types/todo';
 
 export const TaskForm: React.FC = () => {
   const { dispatch } = useTodo();

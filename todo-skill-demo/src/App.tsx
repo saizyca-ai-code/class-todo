@@ -1,122 +1,81 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
+import { TodoProvider } from './context/TodoContext';
+import { TaskForm } from './components/TaskForm';
+import { FilterBar } from './components/FilterBar';
+import { TaskList } from './components/TaskList';
+import { PomodoroTimer } from './components/PomodoroTimer';
+import { AnalyticsDashboard } from './components/AnalyticsDashboard';
 
-function App() {
-  const [count, setCount] = useState(0)
+const MainAppContent: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'tasks' | 'pomodoro' | 'analytics'>('tasks');
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+      <header className="app-header">
+        <div className="brand">
+          <div className="brand-icon">✓</div>
+          <span className="brand-title">Dark Modern Todo</span>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
 
-      <div className="ticks"></div>
+        <nav className="nav-tabs">
+          <button
+            className={`tab-btn ${activeTab === 'tasks' ? 'active' : ''}`}
+            onClick={() => setActiveTab('tasks')}
+          >
+            📋 Tasks
+          </button>
+          <button
+            className={`tab-btn ${activeTab === 'pomodoro' ? 'active' : ''}`}
+            onClick={() => setActiveTab('pomodoro')}
+          >
+            🍅 Focus Timer
+          </button>
+          <button
+            className={`tab-btn ${activeTab === 'analytics' ? 'active' : ''}`}
+            onClick={() => setActiveTab('analytics')}
+          >
+            📊 Analytics
+          </button>
+        </nav>
+      </header>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      <main className="app-container">
+        {activeTab === 'tasks' && (
+          <>
+            <PomodoroTimer />
+            <TaskForm />
+            <FilterBar />
+            <TaskList />
+          </>
+        )}
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+        {activeTab === 'pomodoro' && (
+          <div style={{ maxWidth: '600px', margin: '0 auto', width: '100%' }}>
+            <PomodoroTimer />
+            <div style={{ marginTop: '24px' }}>
+              <h3 style={{ marginBottom: '16px', color: 'var(--text-secondary)' }}>Current Tasks for Focus Session</h3>
+              <TaskList />
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'analytics' && <AnalyticsDashboard />}
+      </main>
+
+      <footer className="app-footer">
+        Dark Modern Todo App — Built with React + TypeScript & LocalStorage Persistence
+      </footer>
     </>
-  )
+  );
+};
+
+function App() {
+  return (
+    <TodoProvider>
+      <MainAppContent />
+    </TodoProvider>
+  );
 }
 
-export default App
+export default App;

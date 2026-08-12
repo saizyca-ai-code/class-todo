@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTodo } from '../context/TodoContext';
 import { TaskItem } from './TaskItem';
-import { Task } from '../types/todo';
+import type { Task } from '../types/todo';
 
 export const TaskList: React.FC = () => {
   const { state } = useTodo();

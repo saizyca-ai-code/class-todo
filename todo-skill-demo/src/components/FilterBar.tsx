@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTodo } from '../context/TodoContext';
-import { FilterStatus, Priority, SortOption } from '../types/todo';
+import type { FilterStatus, Priority, SortOption } from '../types/todo';
 
 export const FilterBar: React.FC = () => {
   const { state, dispatch } = useTodo();

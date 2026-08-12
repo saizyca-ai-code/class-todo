@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
-import { TodoState, TodoAction, Task, Priority } from '../types/todo';
+import type { TodoState, TodoAction, Task } from '../types/todo';
 
 const STORAGE_KEY = 'class_todo_app_data_v1';
 

@@ -6,9 +6,9 @@
 - 03 — Basic Task CRUD & List UI
 - 07 — Integrated Pomodoro Timer
 
-**Status:** ready-for-agent
+**Status:** completed
 
-- [ ] Render KPI summary cards: Total Tasks, Completed Rate %, Total Focus Hours, Current Streak.
-- [ ] Render visual progress bar or lightweight SVG chart for task completion across Categories.
-- [ ] Render Pomodoro focus time stats summary (Today vs This Week).
-- [ ] Provide tab navigation to switch seamlessly between Task List view and Analytics Dashboard.
+- [x] Render KPI summary cards: Total Tasks, Completed Rate %, Total Focus Hours, Current Streak.
+- [x] Render visual progress bar or lightweight SVG chart for task completion across Categories.
+- [x] Render Pomodoro focus time stats summary (Today vs This Week).
+- [x] Provide tab navigation to switch seamlessly between Task List view and Analytics Dashboard.
