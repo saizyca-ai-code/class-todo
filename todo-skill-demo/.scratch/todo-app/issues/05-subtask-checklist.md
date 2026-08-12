@@ -5,10 +5,10 @@
 **Blocked by:**
 - 03 — Basic Task CRUD & List UI
 
-**Status:** ready-for-agent
+**Status:** completed
 
-- [ ] Add expandable subtask drawer/accordion inside each task card.
-- [ ] Provide quick inline input to add new subtasks to a parent task.
-- [ ] Render subtask checklist items with independent completion checkboxes.
-- [ ] Display visual progress bar and completion count ratio (e.g. `2/4 subtasks completed`) on parent card.
-- [ ] Auto-calculate parent task completion suggestions when all subtasks are finished.
+- [x] Add expandable subtask drawer/accordion inside each task card.
+- [x] Provide quick inline input to add new subtasks to a parent task.
+- [x] Render subtask checklist items with independent completion checkboxes.
+- [x] Display visual progress bar and completion count ratio (e.g. `2/4 subtasks completed`) on parent card.
+- [x] Auto-calculate parent task completion suggestions when all subtasks are finished.
