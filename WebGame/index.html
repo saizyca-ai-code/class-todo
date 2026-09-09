@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEGA CLONE - 2D 橫向平台動作射擊遊戲</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 引入 Phaser 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+</head>
+<body>
+    <div class="game-wrapper">
+        <header class="game-header">
+            <h1>⚡ MEGA CLONE ⚡</h1>
+            <p>2D 橫向平台動作射擊遊戲 (Phaser.js)</p>
+        </header>
+
+        <div id="game-container"></div>
+
+        <footer class="game-controls-guide">
+            <div class="control-box">
+                <span class="key">A</span> / <span class="key">D</span> 或 <span class="key">◀</span> <span class="key">▶</span> 移動
+            </div>
+            <div class="control-box">
+                <span class="key">W</span> / <span class="key">Space</span> / <span class="key">K</span> 跳躍
+            </div>
+            <div class="control-box">
+                <span class="key">J</span> / <span class="key">X</span> / <span class="key">滑鼠左鍵</span> 發射能量彈 (最多連發3發)
+            </div>
+            <div class="control-box">
+                <span class="key">R</span> 重新開始
+            </div>
+            <div class="control-box">
+                <span class="key">🏆</span> 街機代號輸入與 LocalStorage 排行榜
+            </div>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
